@@ -23,7 +23,7 @@ class Speech:
 
         audio_config = texttospeech.AudioConfig(
             audio_encoding = texttospeech.AudioEncoding.MP3,
-            speaking_rate = 0.75
+            speaking_rate = 0.8
         )
 
         response = client.synthesize_speech(
@@ -37,10 +37,9 @@ class Speech:
 
     def playsound(self, FILE_NAME):
         import subprocess
-        # from playsound import playsound
-        # playsound('output.mp3')
-        subprocess.call(['omxplayer', '-o', 'local', './output.mp3'])
-        os.remove(self.FILE_NAME)
+        from playsound import playsound
+        playsound('output.mp3')
+        # subprocess.call(['omxplayer', '-o', 'local', './output.mp3'])
         os.remove(self.AUDIO_NAME)
     
     def run(self, text):
