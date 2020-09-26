@@ -27,4 +27,4 @@ while True:
         camera.getBtn().wait_for_press()
 
     for i in range(len(words)):
-        remove('file{}.png'.format(i))
+        remove('test{}.png'.format(i))
