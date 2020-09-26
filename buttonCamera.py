@@ -15,15 +15,15 @@ class Camera:
        self.DIR_PATH = DIR_PATH
        self.FILE_NAME = FILE_NAME
        self.button = Button(21)
+       self.camera = PiCamera()
     
     def getPicture(self):
-        camera = PiCamera()
-        camera.start_preview()
-        #camera.resolution = (1024, 768)
-        #camera.start_preview(fullscreen=False, window=(100, 20, 640, 480))
+        self.camera.start_preview()
+        #self.camera.resolution = (1024, 768)
+        #self.camera.start_preview(fullscreen=False, window=(100, 20, 640, 480))
         self.button.wait_for_press()
-        camera.capture(self.DIR_PATH + '/' + self.FILE_NAME)
-        camera.stop_preview()
+        self.camera.capture(self.DIR_PATH + '/' + self.FILE_NAME)
+        self.camera.stop_preview()
 
     def run(self):
         self.getPicture()
