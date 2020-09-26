@@ -6,19 +6,16 @@ from buttonCamera import Camera
 PROCNAME = "feh"
 def runMP3(speech, word):
     speech.run(word)
-def waitPress():
-    print('here')
-    camera.getBtn().wait_for_press()
-    print('here2')
-    killImg()
+def showImg(fileName):
+    subprocess.run(['feh', '-YF', fileName], timeout=100)
+
 def showim(fileName, speech, word):
     try:
-        thread = threading.Thread(target = runMP3, args=(speech, word))
-        thread.start()
-        waitThread = threading.Thread(target = runMP3)
-        waitThread.start()
-        
-        subprocess.run(['feh', '-YF', fileName], timeout=100)
+        # thread = threading.Thread(target = runMP3, args=(speech, word))
+        # thread.start()
+        imgThread = threading.Thread(target = showImg, args = (fileName))
+        imgThread.start()
+        speech.run(word)
     except:
         print('openImg ended')
 
