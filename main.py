@@ -1,11 +1,11 @@
 from PIL import Image, ImageDraw, ImageFont
 from image2text import Reader
 from text2sound import Speech
+from time import sleep
 import subprocess
 from os import remove
 from buttonCamera import Camera
 import openImg
-
 DIR_PATH = './resources'
 FILE_NAME = 'test.jpg'
 camera = Camera(DIR_PATH, FILE_NAME)
@@ -13,7 +13,10 @@ reader = Reader(DIR_PATH, FILE_NAME)
 speech = Speech()
 while True:
     camera.run()
-    words = reader.run().split('\n')[:-1]
+    words = reader.run()
+    if len(words) == 0:
+        continue
+    words = words.split('\n')[:-1]
     for i in range(len(words)):
         word = words[i]
         print(word)
@@ -27,6 +30,7 @@ while True:
         openImg.showim('test{}.png'.format(i), speech, word)
         speech.run(word)
         camera.getBtn().wait_for_press()
+        sleep(1.5)
         openImg.killImg()
 
     for i in range(len(words)):
