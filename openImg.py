@@ -17,6 +17,7 @@ def showim(fileName, speech, word):
         thread.start()
         waitThread = threading.Thread(target = runMP3)
         waitThread.start()
+        
         subprocess.run(['feh', '-YF', fileName], timeout=100)
     except:
         print('openImg ended')

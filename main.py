@@ -30,7 +30,6 @@ while True:
         img.save(FILE_NAME)
         # subprocess.call(['open', FILE_NAME])
         openImg.showim('test{}.png'.format(i), speech, word)
-        speech.run(word)
         camera.getBtn().wait_for_press()
         sleep(1.5)
 
