@@ -14,8 +14,10 @@ speech = Speech()
 while True:
     camera.run()
     words = reader.run()
+    
     if len(words) == 0:
         continue
+
     words = words.split('\n')[:-1]
     for i in range(len(words)):
         word = words[i]
@@ -31,7 +33,6 @@ while True:
         speech.run(word)
         camera.getBtn().wait_for_press()
         sleep(1.5)
-        openImg.killImg()
 
     for i in range(len(words)):
         remove('test{}.png'.format(i))
