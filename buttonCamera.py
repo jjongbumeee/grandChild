@@ -9,7 +9,6 @@ from gpiozero import Button
 #    camera.capture('./resources/test.jpg')
 #    camera.stop_preview()
 
-
 class Camera: 
     def __init__(self, DIR_PATH, FILE_NAME):
        self.DIR_PATH = DIR_PATH
@@ -28,6 +27,7 @@ class Camera:
     def getPreview(self):
         self.camera.start_preview()
 
+    
     def run(self):
         self.getPicture()
     

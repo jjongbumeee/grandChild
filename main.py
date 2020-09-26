@@ -27,9 +27,11 @@ while True:
         FILE_NAME = 'test{}.png'.format(i)
         img.save(FILE_NAME)
         # subprocess.call(['open', FILE_NAME])
-        #speech.run(word)
-        openImg.showImg(FILE_NAME, speech, word)
+        openImg.showim('test{}.png'.format(i), speech, word)
+        speech.run(word)
         camera.getBtn().wait_for_press()
-    sleep(1.5)
+        sleep(1.5)
+        openImg.killImg()
+
     for i in range(len(words)):
         remove('test{}.png'.format(i))
