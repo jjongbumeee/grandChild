@@ -20,9 +20,9 @@ for i in range(len(words)):
     d.text((10, 10), word, font = fnt, fill = (255, 255, 255))
     FILE_NAME = 'test{}.png'.format(i)
     img.save(FILE_NAME)
-    subprocess.call(['open', FILE_NAME])
+    # subprocess.call(['open', FILE_NAME])
     speech.run(word)
-    camera.getBtn.wait_for_press()
+    camera.getBtn().wait_for_press()
 
 for i in range(len(words)):
     remove('file{}.png'.format(i))

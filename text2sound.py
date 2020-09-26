@@ -37,9 +37,10 @@ class Speech:
 
     def playsound(self, FILE_NAME):
         import subprocess
-        from playsound import playsound
-        playsound('output.mp3')
+        # from playsound import playsound
+        # playsound('output.mp3')
         # subprocess.call(['omxplayer', '-o', 'local', './output.mp3'])
+        subprocess.call(['mpg123', self.AUDIO_NAME])
         os.remove(self.AUDIO_NAME)
     
     def run(self, text):
