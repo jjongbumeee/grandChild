@@ -27,9 +27,8 @@ class Reader:
                 '{}\nFor more info on error messages, check: '
                 'https://cloud.google.com/apis/design/errors'.format(
                     response.error.message))
-        f = open('text.txt', 'w')
-        f.write(texts[0].description)
-        f.close()
+        if len(texts) == 0:
+            return []
         return texts[0].description
 
     def run(self):

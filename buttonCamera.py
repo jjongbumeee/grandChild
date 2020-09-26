@@ -24,6 +24,9 @@ class Camera:
         self.button.wait_for_press()
         self.camera.capture(self.DIR_PATH + '/' + self.FILE_NAME)
         self.camera.stop_preview()
+    
+    def getPreview(self):
+        self.camera.start_preview()
 
     def run(self):
         self.getPicture()
