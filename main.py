@@ -3,21 +3,18 @@ from image2text import Reader
 from text2sound import Speech
 import subprocess
 from os import remove
-<<<<<<< HEAD
-from gpiozero import Button
-=======
->>>>>>> e3d5fee55f69024a8eedd83e0334dfce86eefc18
 from buttonCamera import Camera
 DIR_PATH = './resources'
 FILE_NAME = 'test.jpg'
 camera = Camera(DIR_PATH, FILE_NAME)
-camera.run()
+#camera.run()
 reader = Reader(DIR_PATH, FILE_NAME)
 speech = Speech()
 words = reader.run().split('\n')
 
 for i in range(len(words)):
     word = words[i]
+    print(word)
     img = Image.new('RGB', (len(word) * 50, 80), color = (0, 0, 0))
     d = ImageDraw.Draw(img)
     fnt = ImageFont.truetype('./Font.ttf', 50)
