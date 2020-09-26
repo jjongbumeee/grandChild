@@ -1,7 +1,6 @@
 import os
 class Speech:
     def __init__(self):
-        self.FILE_NAME = 'words.txt'
         self.AUDIO_NAME = 'output.mp3'
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'readingMachine.json'
 
@@ -17,7 +16,7 @@ class Speech:
         # Names of voices can be retrieved with client.list_voices().
         voice = texttospeech.VoiceSelectionParams(
             language_code="ko-KR",
-            name="ko-KR-Wavenet-C",
+            name="ko-KR-Wavenet-B",
             ssml_gender=texttospeech.SsmlVoiceGender.FEMALE,
         )
 
@@ -35,13 +34,14 @@ class Speech:
             out.write(response.audio_content)
 
 
-    def playsound(self, FILE_NAME):
+    def playsound(self):
         import subprocess
-        from playsound import playsound
-        playsound('output.mp3')
-        # subprocess.call(['omxplayer', '-o', 'local', './output.mp3'])
-        os.remove(self.AUDIO_NAME)
+        #from playsound import playsound
+        #playsound('output.mp3')
+        subprocess.call(['omxplayer', '-o', 'local', './output.mp3'])
+        #subprocess.call[('mpg123', self.AUDIO_NAME)]
+        #os.remove(self.AUDIO_NAME)
     
     def run(self, text):
         self.synthesize_text(text)
-        self.playsound(self.FILE_NAME)
+        self.playsound()

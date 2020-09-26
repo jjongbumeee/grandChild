@@ -26,3 +26,6 @@ class Camera:
 
     def run(self):
         self.getPicture()
+    
+    def getBtn(self):
+        return self.button
