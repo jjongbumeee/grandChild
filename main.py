@@ -15,7 +15,7 @@ words = reader.run().split('\n')
 for i in range(len(words)):
     word = words[i]
     print(word)
-    img = Image.new('RGB', (len(word) * 50, 80), color = (0, 0, 0))
+    img = Image.new('RGB', (len(word) * 45, 80), color = (0, 0, 0))
     d = ImageDraw.Draw(img)
     fnt = ImageFont.truetype('./Font.ttf', 50)
     d.text((10, 10), word, font = fnt, fill = (255, 255, 255))

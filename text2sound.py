@@ -16,7 +16,7 @@ class Speech:
         # Names of voices can be retrieved with client.list_voices().
         voice = texttospeech.VoiceSelectionParams(
             language_code="ko-KR",
-            name="ko-KR-Wavenet-B",
+            name="ko-KR-Wavenet-C",
             ssml_gender=texttospeech.SsmlVoiceGender.FEMALE,
         )
 
@@ -40,7 +40,7 @@ class Speech:
         #playsound('output.mp3')
         subprocess.call(['omxplayer', '-o', 'local', './output.mp3'])
         #subprocess.call[('mpg123', self.AUDIO_NAME)]
-        #os.remove(self.AUDIO_NAME)
+        os.remove(self.AUDIO_NAME)
     
     def run(self, text):
         self.synthesize_text(text)

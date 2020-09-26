@@ -1,2 +1,2 @@
 import subprocess
-subprocess.run(['feh', '-YF', 'resources/test.jpg'], shell=True)
+subprocess.run(['feh', '-YF', 'resources/test.jpg'])
