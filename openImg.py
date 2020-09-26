@@ -7,7 +7,9 @@ PROCNAME = "feh"
 def runMP3(speech, word):
     speech.run(word)
 def waitPress():
+    print('here')
     camera.getBtn().wait_for_press()
+    print('here2')
     killImg()
 def showim(fileName, speech, word):
     try:
