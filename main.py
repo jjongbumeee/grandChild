@@ -3,6 +3,7 @@ from image2text import Reader
 from text2sound import Speech
 import subprocess
 from os import remove
+from gpiozero import Button
 # from buttonCamera import Camera
 DIR_PATH = './resources'
 FILE_NAME = 'test.jpg'
@@ -11,6 +12,7 @@ FILE_NAME = 'test.jpg'
 reader = Reader(DIR_PATH, FILE_NAME)
 speech = Speech()
 words = reader.run().split('\n')
+button = Button(21)
 for i in range(len(words)):
     word = words[i]
     print(word)
@@ -22,5 +24,7 @@ for i in range(len(words)):
     img.save(FILE_NAME)
     subprocess.call(['open', FILE_NAME])
     speech.run(word)
+    button.wait_for_press()
+
 for i in range(len(words)):
     remove('file{}.png'.format(i))
