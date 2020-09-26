@@ -18,8 +18,9 @@ class Camera:
     
     def getPicture(self):
         camera = PiCamera()
-        camera.resolution = (1024, 768)
-        camera.start_preview(fullscreen=False, window=(100, 20, 640, 480))
+        camera.start_preview()
+        #camera.resolution = (1024, 768)
+        #camera.start_preview(fullscreen=False, window=(100, 20, 640, 480))
         self.button.wait_for_press()
         camera.capture(self.DIR_PATH + '/' + self.FILE_NAME)
         camera.stop_preview()

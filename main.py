@@ -7,10 +7,10 @@ from buttonCamera import Camera
 DIR_PATH = './resources'
 FILE_NAME = 'test.jpg'
 camera = Camera(DIR_PATH, FILE_NAME)
-#camera.run()
+camera.run()
 reader = Reader(DIR_PATH, FILE_NAME)
 speech = Speech()
-words = reader.run().split('\n')
+words = reader.run().split('\n')[:-1]
 
 for i in range(len(words)):
     word = words[i]
