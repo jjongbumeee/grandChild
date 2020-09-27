@@ -4,7 +4,7 @@ from buttonCamera import Camera
 
 FILENAME = ''
 def showImg():
-    subprocess.run(['feh', '-YF', FILENAME], timeout=20)
+    subprocess.run(['feh', '-YF', FILENAME], timeout=10)
 
 def showim(fileName, speech, word):
     try:

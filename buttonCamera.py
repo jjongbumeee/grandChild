@@ -1,6 +1,7 @@
 from picamera import PiCamera
 from time import sleep
 from gpiozero import Button
+import subprocess
 
 #with PiCamera() as camera:
 #    camera.start_preview(fullscreen=False, window=(100, 20, 640, 480))
@@ -17,11 +18,13 @@ class Camera:
        self.camera = PiCamera()
     
     def getPicture(self):
+        subprocess.run(['omxplayer', '-o', 'local', self.DIR_PATH+'/notification.mp3'])
         self.camera.start_preview()
-        #self.camera.resolution = (1024, 768)
+        self.camera.resolution = (800, 480)
         #self.camera.start_preview(fullscreen=False, window=(100, 20, 640, 480))
         self.button.wait_for_press()
         self.camera.capture(self.DIR_PATH + '/' + self.FILE_NAME)
+        subprocess.run(['omxplayer', '-o', 'local', self.DIR_PATH+'/camera_click.mp3'])
         self.camera.stop_preview()
     
     def getPreview(self):
